@@ -12,7 +12,7 @@ def main():
     conn, _= server_socket.accept()
     while True:
             Thread(target=main, args=(conn,), daemon=True).start()
-            Thread(target=main, args=(conn,), daemon=True).start()
+            #Thread(target=main, args=(conn,), daemon=True).start()
             #conn, _= server_socket.accept()
             with conn:
                 msg = conn.recv(1024)
