@@ -49,7 +49,8 @@ def main(conn):
 #          conn, _= server_socket.accept()
 #          Thread(target=main, args=(conn,), daemon=True).start()
 
-server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
-conn, _= server_socket.accept()
+while True:
 
-main(conn)
+    server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
+    conn, _= server_socket.accept()
+    main(conn)
