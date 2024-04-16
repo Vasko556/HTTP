@@ -5,8 +5,8 @@ from threading import Thread
 #server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
 #conn, _= server_socket.accept()
 
-
-def main(self):
+@staticmethod
+def main():
 
     server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
     conn, _= server_socket.accept()
