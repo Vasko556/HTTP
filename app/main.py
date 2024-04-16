@@ -30,5 +30,5 @@ def main():
                 conn.send(data.encode("utf-8"))
                 
 #if __name__ == "__main__":
-subprocess.call(['sh', 'C:\prj\git\http\codecrafters-http-server-python\app\main.py'])
+subprocess.call(['sh', '/c/prj/git/http/codecrafters-http-server-python/app/main.py'])
 main()
