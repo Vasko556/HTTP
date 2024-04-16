@@ -24,7 +24,7 @@ def main():
                 else:
                     data = "HTTP/1.1 404 Not found\r\n\r\n"
                 #print(msg1)
-                print(user_agent_split)
+                #print(user_agent_split)
                 #print(data)
                 conn.send(data.encode("utf-8"))
 
