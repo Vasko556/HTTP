@@ -5,11 +5,14 @@ from threading import Thread
 server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
 conn, _= server_socket.accept()
 
+
 def main():
 
     server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
     conn, _= server_socket.accept()
     while True:
+            Thread(target=main, args=(conn,), daemon=True).start()
+            conn, _= server_socket.accept()
             with conn:
                 msg = conn.recv(1024)
                 msg1 = msg[10:-90]
@@ -32,12 +35,11 @@ def main():
                 #print(user_agent_split)
                 #print(data)
                 conn.send(data.encode("utf-8"))
-while True:
 
-    conn, _ = server_socket.accept()
+    #conn, _ = server_socket.accept()
 
-    Thread(target=main, args=(conn,), daemon=True).start()
+    #Thread(target=main, args=(conn,), daemon=True).start()
 
 
 #if __name__ == "__main__":
-    main()
+main()
