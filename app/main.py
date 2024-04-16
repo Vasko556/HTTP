@@ -27,6 +27,6 @@ def main():
                 #print(user_agent_split)
                 #print(data)
                 conn.send(data.encode("utf-8"))
-
+                main()
 if __name__ == "__main__":
     main()
