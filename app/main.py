@@ -1,17 +1,32 @@
-# Uncomment this to pass the first stage
 import socket
-
-
+#asd
 def main():
-    # You can use print statements as follows for debugging, they'll be visible when running tests.
-    print("Logs from your program will appear here!")
 
-    # Uncomment this to pass the first stage
-    #
     server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
+    conn, _= server_socket.accept()
+    while True:
+            with conn:
+                msg = conn.recv(1024)
+                msg1 = msg[10:-90]
+                msg2 = len(msg1)
+                msg3 = msg1.decode("utf-8")
+                user_agent = ""
+                user_agent_split = ""
+                if msg[0:6] == b'GET / ':
+                    data = "HTTP/1.1 200 OK\r\n\r\n"
+                elif msg[0:10] == b'GET /echo/':
+                    data = "HTTP/1.1 200 OK\r\n" + "Content-Type: text/plain\r\n" + "Content-Length: " + str(msg2) + "\r\n\r\n" + str(msg3)
+                elif msg[0:15].decode("utf-8") == 'GET /user-agent':
+                    user_agent = msg.decode("utf-8").split("Agent: ", 1)[-1]
+                    user_agent_split = user_agent.split("\r\nAccept-", 1)[0]
+                    data = "HTTP/1.1 200 OK\r\n" + "Content-Type: text/plain\r\n" + "Content-Length: " + str(len(user_agent_split)) + "\r\n\r\n" + str(user_agent_split)
 
-    server_socket.accept() # wait for client
-
+                else:
+                    data = "HTTP/1.1 404 Not found\r\n\r\n"
+                #print(msg1)
+                print(user_agent_split)
+                #print(data)
+                conn.send(data.encode("utf-8"))
 
 if __name__ == "__main__":
     main()
