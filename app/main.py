@@ -1,6 +1,5 @@
 import socket
-#import subprocess
-#asd
+
 def main():
 
     server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
@@ -29,6 +28,5 @@ def main():
                 #print(data)
                 conn.send(data.encode("utf-8"))
                 
-#if __name__ == "__main__":
-#subprocess.call(['sh', '/c/prj/git/http/codecrafters-http-server-python/app/main.py'])
-main()
+if __name__ == "__main__":
+    main()
