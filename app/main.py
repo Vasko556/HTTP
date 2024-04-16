@@ -6,13 +6,13 @@ from threading import Thread
 #conn, _= server_socket.accept()
 
 
-def main(conn):
+def main():
 
     server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
     conn, _= server_socket.accept()
     while True:
             
-            Thread(target=main, args=(conn,), daemon=True).start()
+            #Thread(target=main, args=(conn,), daemon=True).start()
             #conn, _= server_socket.accept()
             with conn:
                 msg = conn.recv(1024)
@@ -49,8 +49,8 @@ def main(conn):
 #          conn, _= server_socket.accept()
 #          Thread(target=main, args=(conn,), daemon=True).start()
 
-while True:
+#while True:
 
-    server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
-    conn, _= server_socket.accept()
-    main(conn)
+#    server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
+#    conn, _= server_socket.accept()
+main()
