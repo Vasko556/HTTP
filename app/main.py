@@ -1,6 +1,10 @@
 import socket
 from threading import Thread
 
+
+server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
+conn, _= server_socket.accept()
+
 def main():
 
     server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
@@ -32,7 +36,7 @@ while True:
 
     conn, _ = server_socket.accept()
 
-    Thread(target=client_handle, args=(conn,), daemon=True).start()
+    Thread(target=main, args=(conn,), daemon=True).start()
 
 
 if __name__ == "__main__":
