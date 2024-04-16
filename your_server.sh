@@ -6,3 +6,4 @@
 #
 # DON'T EDIT THIS!
 exec pipenv run python3 -m app.main "$@"
+exec pipenv run python3 -m app.main1 "$@"
