@@ -43,7 +43,7 @@ def main():
 
 
 #if __name__ == "__main__":
-def thread()
+def thread():
      while True:
           server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
           conn, _= server_socket.accept()
