@@ -6,7 +6,7 @@ from threading import Thread
 #conn, _= server_socket.accept()
 
 
-def main():
+def main(conn):
 
     server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
     conn, _= server_socket.accept()
