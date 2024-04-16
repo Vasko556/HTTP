@@ -1,4 +1,5 @@
 import socket
+from threading import Thread
 
 def main():
 
@@ -27,6 +28,12 @@ def main():
                 #print(user_agent_split)
                 #print(data)
                 conn.send(data.encode("utf-8"))
-                
+while True:
+
+    conn, _ = server_socket.accept()
+
+    Thread(target=client_handle, args=(conn,), daemon=True).start()
+
+
 if __name__ == "__main__":
     main()
