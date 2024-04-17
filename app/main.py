@@ -1,21 +1,14 @@
 import socket
 import threading 
-import time
 
 
 server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
 conn, _= server_socket.accept()
-#server_socket2 = socket.create_server(("localhost", 4221), reuse_port=True)
-#conn2, _= server_socket.accept()
 
 def main(conn):
 
-    #server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
-    #onn, _= server_socket.accept()
     while True:
             
-            #Thread(target=main, args=(conn,), daemon=True).start()
-            #conn, _= server_socket.accept()
             with conn:
                 msg = conn.recv(1024)
                 msg1 = msg[10:-90]
@@ -48,4 +41,7 @@ t.start()
 conn2, _= server_socket.accept()
 t2 = threading.Thread(target=main, args=(conn2,))
 t2.start()
+conn3, _= server_socket.accept()
+t3 = threading.Thread(target=main, args=(conn3,))
+t3.start()
 #main(conn,)
