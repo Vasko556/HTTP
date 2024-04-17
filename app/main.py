@@ -44,6 +44,6 @@ def main(conn):
 
 t = threading.Thread(target=main, args=(conn,)).start
 t2 = threading.Thread(target=main, args=(conn,)).start
-#t.start()
-#t2.start()
+t.start()
+t2.start()
 #main(conn,)
