@@ -5,7 +5,8 @@ import time
 
 server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
 conn, _= server_socket.accept()
-
+server_socket2 = socket.create_server(("localhost", 4221), reuse_port=True)
+conn2, _= server_socket2.accept()
 
 def main(conn):
 
@@ -43,7 +44,7 @@ def main(conn):
 #if __name__ == "__main__":
 
 t = threading.Thread(target=main, args=(conn,))
-t2 = threading.Thread(target=main, args=(conn,))
+t2 = threading.Thread(target=main, args=(conn2,))
 t.start()
 t2.start()
 #main(conn,)
