@@ -42,7 +42,7 @@ def main(conn):
 
 #if __name__ == "__main__":
 
-thread1 = threading.Thread(main) 
+t = threading.Thread(target=main)
 
-thread1.start() 
+t.start()
 #main(conn,)
