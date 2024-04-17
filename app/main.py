@@ -5,8 +5,8 @@ import time
 
 server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
 conn, _= server_socket.accept()
-server_socket2 = socket.create_server(("localhost", 4221), reuse_port=True)
-conn2, _= server_socket2.accept()
+#server_socket2 = socket.create_server(("localhost", 4221), reuse_port=True)
+conn2, _= server_socket.accept()
 
 def main(conn):
 
