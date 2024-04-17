@@ -42,8 +42,8 @@ def main(conn):
 
 #if __name__ == "__main__":
 
-t = threading.Thread(target=main, args=(conn,)).start
-t2 = threading.Thread(target=main, args=(conn,)).start
+t = threading.Thread(target=main, args=(conn,))
+t2 = threading.Thread(target=main, args=(conn,))
 t.start()
 t2.start()
 #main(conn,)
