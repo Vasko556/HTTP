@@ -1,11 +1,15 @@
 import socket
+import socket
 import threading 
 
 
 server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
 conn, _= server_socket.accept()
 
-def main(conn):
+def main():
+
+    server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
+    conn, _= server_socket.accept()
 
     with conn:
         msg = conn.recv(1024).decode()
@@ -30,7 +34,8 @@ def main(conn):
             data = "HTTP/1.1 404 Not found\r\n\r\n"
        
         conn.send(data.encode("utf-8"))
-        
+
+
 t = threading.Thread(target=main, args=(conn,))
 t.start()
 conn2, _= server_socket.accept()
