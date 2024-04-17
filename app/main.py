@@ -44,8 +44,8 @@ def main(conn):
 #if __name__ == "__main__":
 
 t = threading.Thread(target=main, args=(conn,))
-t2 = threading.Thread(target=main, args=(conn2,))
 t.start()
 conn2, _= server_socket.accept()
+t2 = threading.Thread(target=main, args=(conn2,))
 t2.start()
 #main(conn,)
