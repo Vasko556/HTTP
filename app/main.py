@@ -8,9 +8,6 @@ conn, _= server_socket.accept()
 
 def main(conn):
 
-    server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
-    conn, _= server_socket.accept()
-
     with conn:
         msg = conn.recv(1024).decode()
         substring = "GET / "
