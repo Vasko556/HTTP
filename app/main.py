@@ -38,20 +38,10 @@ def main(conn):
                 #print(data)
                 conn.send(data.encode("utf-8"))
 
-    #conn, _ = server_socket.accept()
-
-    #Thread(target=main, args=(conn,), daemon=True).start()
 
 
 #if __name__ == "__main__":
-#def thread():
-#     while True:
-#          server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
-#          conn, _= server_socket.accept()
-#          Thread(target=main, args=(conn,), daemon=True).start()
 
-#while True:
+thread1 = threading.Thread(main, args=(conn,)) 
 
-#    server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
-#    conn, _= server_socket.accept()
-main(conn,)
+#main(conn,)
