@@ -1,15 +1,16 @@
 import socket
-from threading import Thread
+import threading 
+import time
 
 
-#server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
-#conn, _= server_socket.accept()
+server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
+conn, _= server_socket.accept()
 
 
-def main():
+def main(conn):
 
-    server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
-    conn, _= server_socket.accept()
+    #server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
+    #onn, _= server_socket.accept()
     while True:
             
             #Thread(target=main, args=(conn,), daemon=True).start()
@@ -53,4 +54,4 @@ def main():
 
 #    server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
 #    conn, _= server_socket.accept()
-main()
+main(conn,)
